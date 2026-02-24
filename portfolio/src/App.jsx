@@ -1,25 +1,34 @@
-import { useEffect, useState } from 'react';
-import { Mail, Linkedin, Github } from "lucide-react";
-import './App.css'
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import Preloader from "./components/Preloader";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Experience from "./components/Experience";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import FloatingNav from "./components/FloatingNav";
+import "./App.css";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [time, setTime] = useState("");
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = localStorage.getItem("theme");
     if (savedTheme) return savedTheme;
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
   });
 
   useEffect(() => {
     const html = document.documentElement;
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-    
-  }, [theme])
-
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const updateTime = () => {
@@ -28,7 +37,7 @@ function App() {
         now.toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
-        })
+        }),
       );
     };
 
@@ -36,56 +45,82 @@ function App() {
     const interval = setInterval(updateTime, 60000);
     return () => clearInterval(interval);
   }, []);
-  
+
+  useEffect(() => {
+    // Simulate a loading delay for the signature reveal
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500); // Adjust time to match your signature animation speed
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const toggleTheme = () => {
-    setTheme( theme === 'light' ? 'dark' : 'light' );
-  }
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  // Animation Variants for reusability
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 },
+    },
+  };
 
   return (
-    <div className='min-h-screen bg-white dark:bg-zinc-900 grid-bg transition-colors relative'>
-        {/* Switch mode Roggle */}
-        <button 
-        onClick={toggleTheme}
-        aria-label={'Switch'}
-        className="p-2 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 absolute bottom-1 right-1">
-          {
-            theme === 'dark' ? (
-              <span>☀️</span>
-            ) : (
-              <span>🌙</span>
-            )
-          }
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader key="loader" />}
+      </AnimatePresence>
+
+      <div className="min-h-screen text-zinc-900 dark:text-zinc-100 dark:bg-zinc-900 grid-bg transition-colors overflow-hidden">
+        {/* Switch mode Toggle */}
+        <button
+          onClick={toggleTheme}
+          aria-label={"Switch theme"}
+          className=" w-10 h-10 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-md dark:hover:bg-zinc-700 flex items-center justify-center fixed bottom-6 right-6 z-50 transition-all"
+        >
+          {theme === "dark" ? <span>☀️</span> : <span>🌙</span>}
         </button>
-      
-      <header className="w-full">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center border-b-2 border-black dark:border-zinc-100">
 
-        {/* Left text */}
-        <div className="text-sm text-zinc-600 dark:text-zinc-400">
-          Egypt · {time}
-        </div>
+        <Header time={time} />
 
-        {/* Right icons */}
-        <div className="flex items-end gap-6 text-zinc-700 dark:text-zinc-300">
-          <a href="" className='transition-transform duration-500 hover:-translate-y-1'>
-            <Mail size={20} className="cursor-pointer hover:opacity-70" />
-          </a>
-          <a href="https://www.linkedin.com/in/farah-mahmouud" className='transition-transform duration-500 hover:-translate-y-1'>
-            <Linkedin size={20} className="cursor-pointer hover:opacity-70" />
-          </a>
-          <a href="https://github.com/farra-h" className='transition-transform duration-500 hover:-translate-y-1'>
-            <Github size={20} className="cursor-pointer hover:opacity-70" />
-          </a>
-          {/* <a href="" className='transition-transform duration-500 hover:-translate-y-1'>
-            < size={20} className="cursor-pointer hover:opacity-70" />
-          </a> */}
-        </div>
+        {/* Hero Section */}
+        <Hero staggerContainer="staggerContainer" fadeUp="fadeUp" />
+
+        {/* About Section */}
+        <About staggerContainer="staggerContainer" fadeUp="fadeUp" />
+
+        {/* Skills Section */}
+        <Skills staggerContainer="staggerContainer" fadeUp="fadeUp" />
+
+        {/* Projects Section */}
+        <Projects />
+
+        {/* Experience Section */}
+        <Experience fadeUp="fadeUp" />
+
+        {/* Contact Section */}
+        <Contact staggerContainer="staggerContainer" fadeUp="fadeUp" />
+
+        {/* Footer Section */}
+        <Footer />
+
+        {/* NEW FLOATING NAV */}
+        <FloatingNav />
       </div>
-
-      </header>
-
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
