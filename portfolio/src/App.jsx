@@ -105,7 +105,7 @@ function App() {
         <Skills staggerContainer="staggerContainer" fadeUp="fadeUp" />
 
         {/* Projects Section */}
-        <Projects />
+        <Projects staggerContainer="staggerContainer" fadeUp="fadeUp" />
 
         {/* Experience Section */}
         <Experience fadeUp="fadeUp" />

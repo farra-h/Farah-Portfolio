@@ -3,66 +3,97 @@ import { motion } from "framer-motion";
 
 const projectData = [
   {
-    title: "ULTIMATE-MEDIA-DOWNLO...",
+    title: "Movies Website",
+    image:
+      "https://opengraph.githubassets.com/1/farra-h/Movies-Website?v=1",
     description:
-      "A powerful, feature-rich command-line tool for downloading media from 1000+...",
+      "A sleek cinematic platform built with React and Appwrite, leveraging the TMDB API to deliver real-time trending data and an intuitive search experience for movie enthusiasts.",
     tags: [
-      "any-audio-downloader",
-      "any-video-downloader",
-      "apple-music-downloader",
-      "cli",
+      "reactjs",
+      "tmdb-api",
+      "tailwindcss",
+      "appwrite-database",
     ],
-    language: "Python",
+    language: ["JavaScript", "CSS", "HTML"],
     stars: 38,
-    date: "10/2/2025",
-    link: "#",
+    date: "8/2/2026",
+    link: "https://github.com/farra-h/Movies-Website",
+    demo: false,
+    demoLink: "",
   },
   {
-    title: "CODEPENS",
+    title: "My Portfolio",
+    image:
+      "https://opengraph.githubassets.com/1/farra-h/Farah-Portfolio?v=1",
     description:
-      "This repository contains a variety of web projects, UI/UX experiments, and creativ...",
-    tags: ["codepen", "codepenchallenge", "codepens", "experiments"],
-    language: "JavaScript",
+      "A high-performance, minimalist portfolio crafted with React and Framer Motion, featuring bespoke editorial typography and fluid animations to showcase the intersection of code and design.",
+    tags: [
+      "reactjs",
+      "framer-motion",
+      "tailwindcss-v4",
+    ],
+    language: ["JavaScript", "CSS", "HTML"],
+    stars: 38,
+    date: "26/2/2026",
+    link: "https://github.com/farra-h/Farah-Portfolio",
+    demo: false,
+    demoLink: "",
+  },
+  {
+    title: "Yummy",
+    image: "/yummy.jpg",
+    description:
+      "A fully responsive culinary showcase built with JavaScript and Bootstrap 5, featuring fluid navigation and interactive Swiper.js integration for a modern, appetising user experience.",
+    tags: ["javascript", "html5", "css3", "bootsrap5", "swiper-js"],
+    language: ["HTML", "CSS", "JavaScript"],
     stars: 6,
-    date: "6/19/2025",
-    link: "#",
+    date: "28/7/2025",
+    link: "https://github.com/farra-h/Yummy",
+    demo: true,
+    demoLink: "https://farra-h.github.io/Yummy/",
   },
   {
-    title: "Iconoodle",
+    title: "Bakery Website",
+    image: "/bakery.png",
     description:
-      "Iconoodle is a small Next.js + TypeScript site and icon library of hand-drawn SVG...",
-    tags: ["doodles", "icons", "illustrations", "nextjs"],
-    language: "TypeScript",
+      "A charming, responsive digital storefront for a bakery built with HTML5 and CSS3, utilizing subtle Bootstrap enhancements to create a warm and inviting user experience.",
+    tags: ["html5", "css3", "bootsrap5"],
+    language: ["HTML", "CSS"],
     stars: 6,
-    date: "12/28/2025",
-    link: "#",
+    date: "17/28/2025",
+    link: "https://github.com/farra-h/Bakery",
+    demo: true,
+    demoLink: "https://farra-h.github.io/Bakery/",
   },
   {
-    title: "MINDROUTE_DOCUMENT...",
+    title: "OmniFood Restaurant",
+    image: "/omnifood.jpg",
     description:
-      "This repository contains how to build your own ai roadmap generator...",
-    tags: ["ai", "documentation", "roadmap-project"],
-    language: "N/A",
+      "A comprehensive, mobile-first restaurant platform developed with Bootstrap 5, featuring a clean layout and modern UI components designed to streamline food discovery and brand storytelling.",
+    tags: ["html5", "css3", "bootsrap5"],
+    language: ["HTML", "CSS"],
     stars: 0,
-    date: "7/15/2025",
-    link: "#",
+    date: "13/7/2025",
+    link: "https://github.com/farra-h/Food-Project",
+    demo: true,
+    demoLink: "https://farra-h.github.io/Food-Project/",
+  },
+  {
+    title: "Fittness-Club-Webpage",
+    image: "/fittness.png",
+    description:
+      "A high-impact, modern landing page for a premier fitness club, built with clean HTML5 and CSS3. It features high-energy visual sections and optimized responsive layouts designed to showcase amenities and drive member sign-ups.",
+    tags: ["html5", "css3"],
+    language: ["HTML", "CSS"],
+    stars: 0,
+    date: "6/7/2025",
+    link: "https://github.com/farra-h/Fittness-Club-Webpage",
+    demo: true,
+    demoLink: "https://farra-h.github.io/Fittness-Club-Webpage/",
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-export default function Projects() {
+export default function Projects({ staggerContainer, fadeUp }) {
   const scrollContainerRef = useRef(null);
 
   // Function to handle the left/right button scrolling
@@ -201,9 +232,21 @@ export default function Projects() {
             >
               {/* Top section */}
               <div>
-                <h3 className="text-xl font-bold font uppercase tracking-wide">
+                <h3 className="text-xl font-bold font tracking-wide mb-3">
                   {project.title}
                 </h3>
+                <div className="w-full h-48 mb-6 overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-700/50">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                    // If the link is broken, this replaces it with a beautiful backup image
+                    onError={(e) => {
+                      e.target.src =
+                        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop";
+                    }}
+                  />
+                </div>
                 <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-3 font leading-relaxed">
                   {project.description}
                 </p>
@@ -234,15 +277,19 @@ export default function Projects() {
               </div>
 
               {/* Bottom section */}
-              <div className="mt-8">
+              <div className="mt-2">
                 <div className="flex justify-between items-center text-sm text-zinc-500 dark:text-zinc-400 mb-2 font">
-                  <span className="flex items-center gap-1.5">
-                    <span
-                      className={`w-2 h-2 rounded-full ${project.language === "Python" ? "bg-blue-500" : project.language === "JavaScript" ? "bg-yellow-400" : project.language === "TypeScript" ? "bg-blue-600" : "bg-zinc-400"}`}
-                    ></span>
-                    {project.language}
-                  </span>
-                  <span className="flex items-center gap-1">
+                  <div className="flex flex-wrap gap-5 mt-4">
+                    {project.language.map((lan) => (
+                      <span key={lan} className="flex items-center gap-1.5">
+                        <span
+                          className={`w-2 h-2 rounded-full ${lan === "CSS" ? "bg-purple-700" : lan === "JavaScript" ? "bg-yellow-300" : lan === "TypeScript" ? "bg-blue-600" : lan === "HTML" ? "bg-orange-500" : "bg-zinc-400"}`}
+                        ></span>
+                        {lan}
+                      </span>
+                    ))}
+                  </div>
+                  {/* <span className="flex items-center gap-1">
                     <svg
                       className="w-4 h-4"
                       fill="none"
@@ -257,7 +304,7 @@ export default function Projects() {
                       />
                     </svg>
                     {project.stars}
-                  </span>
+                  </span> */}
                 </div>
                 <div className="flex items-center gap-1.5 text-sm text-zinc-500 dark:text-zinc-400 mb-6 font">
                   <svg
@@ -275,13 +322,35 @@ export default function Projects() {
                   </svg>
                   {project.date}
                 </div>
-
-                <a
-                  href={project.link}
-                  className="block w-full text-center py-2.5 rounded border border-zinc-300 dark:border-zinc-700 font text-sm font-semibold hover:bg-zinc-900 hover:border-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:border-zinc-100 dark:hover:text-black transition-all"
-                >
-                  View on GitHub
-                </a>
+                
+                {
+                  project.demo === true ? 
+                  <div className="flex gap-3">
+                    <a
+                      href={project.link}
+                      target= "_blank"
+                      className="w-75 text-center py-2.5 rounded border border-zinc-300 dark:border-zinc-700 font text-sm font-semibold hover:bg-zinc-900 hover:border-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:border-zinc-100 dark:hover:text-black transition-all"
+                    >
+                      View on GitHub
+                    </a>
+                    <a
+                      href={project.demoLink}
+                      target= "_blank"
+                      className="w-25 text-center py-2.5 rounded border border-zinc-300 dark:border-zinc-700 font text-sm font-semibold hover:bg-zinc-900 hover:border-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:border-zinc-100 dark:hover:text-black transition-all"
+                    >
+                      Website
+                    </a>
+                  </div>
+                  : 
+                  <a
+                    href={project.link}
+                    target= "_blank"
+                    className="block w-full text-center py-2.5 rounded border border-zinc-300 dark:border-zinc-700 font text-sm font-semibold hover:bg-zinc-900 hover:border-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:border-zinc-100 dark:hover:text-black transition-all"
+                  >
+                    View on GitHub
+                  </a>
+                }
+                
               </div>
             </div>
           ))}
