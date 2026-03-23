@@ -47,33 +47,8 @@ const Skills = ({ staggerContainer, fadeUp }) => {
             <span className="font-mono font-bold tracking-tighter">{">_"}</span>
           ),
         },
-        // {
-        //   name: "Next.js",
-        //   icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
-        // },
-        // { name: "Framer Motion", icon: <span className="font-mono font-bold tracking-tighter">{"≈"}</span> }
-      ],
-    },
-    {
-      titlePart1: "Backend",
-      titlePart2: "Engineering",
-      subtitle: "Architecting Scalable Systems",
-      skills: [
         {
-          name: "Node.js / Express",
-          icon: (
-            <span className="font-mono font-bold tracking-tighter">
-              {"{ }"}
-            </span>
-          ),
-        },
-        // { name: "Python & Django", icon: <span className="font-mono font-bold tracking-tighter">{"py"}</span> },
-        // {
-        //   name: "PostgreSQL",
-        //   icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
-        // },
-        {
-          name: "MongoDB",
+          name: "Saas",
           icon: (
             <svg
               className="w-5 h-5"
@@ -85,13 +60,56 @@ const Skills = ({ staggerContainer, fadeUp }) => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={1.5}
-                d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
               />
             </svg>
           ),
         },
+        // {
+        //   name: "Next.js",
+        //   icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" /></svg>
+        // },
+        // { name: "Framer Motion", icon: <span className="font-mono font-bold tracking-tighter">{"≈"}</span> }
       ],
     },
+    // {
+    //   titlePart1: "Backend",
+    //   titlePart2: "Engineering",
+    //   subtitle: "Architecting Scalable Systems",
+    //   skills: [
+    //     {
+    //       name: "Node.js / Express",
+    //       icon: (
+    //         <span className="font-mono font-bold tracking-tighter">
+    //           {"{ }"}
+    //         </span>
+    //       ),
+    //     },
+    //     // { name: "Python & Django", icon: <span className="font-mono font-bold tracking-tighter">{"py"}</span> },
+    //     // {
+    //     //   name: "PostgreSQL",
+    //     //   icon: <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+    //     // },
+    //     {
+    //       name: "MongoDB",
+    //       icon: (
+    //         <svg
+    //           className="w-5 h-5"
+    //           fill="none"
+    //           viewBox="0 0 24 24"
+    //           stroke="currentColor"
+    //         >
+    //           <path
+    //             strokeLinecap="round"
+    //             strokeLinejoin="round"
+    //             strokeWidth={1.5}
+    //             d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+    //           />
+    //         </svg>
+    //       ),
+    //     },
+    //   ],
+    // },
   ];
 
   return (

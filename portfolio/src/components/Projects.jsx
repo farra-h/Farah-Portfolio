@@ -4,16 +4,10 @@ import { motion } from "framer-motion";
 const projectData = [
   {
     title: "Movies Website",
-    image:
-      "https://opengraph.githubassets.com/1/farra-h/Movies-Website?v=1",
+    image: "https://opengraph.githubassets.com/1/farra-h/Movies-Website?v=1",
     description:
       "A sleek cinematic platform built with React and Appwrite, leveraging the TMDB API to deliver real-time trending data and an intuitive search experience for movie enthusiasts.",
-    tags: [
-      "reactjs",
-      "tmdb-api",
-      "tailwindcss",
-      "appwrite-database",
-    ],
+    tags: ["reactjs", "tmdb-api", "tailwindcss", "appwrite-database"],
     language: ["JavaScript", "CSS", "HTML"],
     stars: 38,
     date: "8/2/2026",
@@ -23,15 +17,10 @@ const projectData = [
   },
   {
     title: "My Portfolio",
-    image:
-      "https://opengraph.githubassets.com/1/farra-h/Farah-Portfolio?v=1",
+    image: "https://opengraph.githubassets.com/1/farra-h/Farah-Portfolio?v=1",
     description:
       "A high-performance, minimalist portfolio crafted with React and Framer Motion, featuring bespoke editorial typography and fluid animations to showcase the intersection of code and design.",
-    tags: [
-      "reactjs",
-      "framer-motion",
-      "tailwindcss-v4",
-    ],
+    tags: ["reactjs", "framer-motion", "tailwindcss-v4"],
     language: ["JavaScript", "CSS", "HTML"],
     stars: 38,
     date: "26/2/2026",
@@ -143,12 +132,11 @@ export default function Projects({ staggerContainer, fadeUp }) {
 
       <motion.div variants={fadeUp} className="max-w-6xl mx-auto px-6">
         {/* 2. GitHub Style Header Box */}
-        <motion.div
+        <div
           variants={fadeUp}
-          className="border-b border-zinc-300 dark:border-zinc-700 py-8 mb-6 flex items-start justify-between"
+          // className="border-b border-zinc-300 dark:border-zinc-700 py-8 mb-6 flex items-start justify-between"
         >
-          <div className="flex items-start gap-4 md:gap-6">
-            {/* GitHub Icon */}
+          {/* <div className="flex items-start gap-4 md:gap-6">
             <svg
               viewBox="0 0 24 24"
               className="w-10 h-10 md:w-12 md:h-12 fill-current mt-1 text-zinc-800 dark:text-zinc-200"
@@ -172,8 +160,8 @@ export default function Projects({ staggerContainer, fadeUp }) {
                 time.
               </p>
             </div>
-          </div>
-        </motion.div>
+          </div> */}
+        </div>
 
         {/* 3. Navigation Arrows */}
         <motion.div variants={fadeUp} className="flex justify-end gap-3 mb-6">
@@ -322,35 +310,33 @@ export default function Projects({ staggerContainer, fadeUp }) {
                   </svg>
                   {project.date}
                 </div>
-                
-                {
-                  project.demo === true ? 
+
+                {project.demo === true ? (
                   <div className="flex gap-3">
                     <a
                       href={project.link}
-                      target= "_blank"
+                      target="_blank"
                       className="w-75 text-center py-2.5 rounded border border-zinc-300 dark:border-zinc-700 font text-sm font-semibold hover:bg-zinc-900 hover:border-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:border-zinc-100 dark:hover:text-black transition-all"
                     >
                       View on GitHub
                     </a>
                     <a
                       href={project.demoLink}
-                      target= "_blank"
+                      target="_blank"
                       className="w-25 text-center py-2.5 rounded border border-zinc-300 dark:border-zinc-700 font text-sm font-semibold hover:bg-zinc-900 hover:border-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:border-zinc-100 dark:hover:text-black transition-all"
                     >
                       Website
                     </a>
                   </div>
-                  : 
+                ) : (
                   <a
                     href={project.link}
-                    target= "_blank"
+                    target="_blank"
                     className="block w-full text-center py-2.5 rounded border border-zinc-300 dark:border-zinc-700 font text-sm font-semibold hover:bg-zinc-900 hover:border-zinc-900 hover:text-white dark:hover:bg-zinc-100 dark:hover:border-zinc-100 dark:hover:text-black transition-all"
                   >
                     View on GitHub
                   </a>
-                }
-                
+                )}
               </div>
             </div>
           ))}

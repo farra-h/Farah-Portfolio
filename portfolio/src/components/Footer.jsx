@@ -60,7 +60,7 @@ export default function Footer() {
       </div>
       
       {/* Bottom Subtle Line */}
-      <div className="max-w-7xl mx-auto mt-20 h-[1px] bg-zinc-300 dark:bg-zinc-700 w-full" />
+      <div className="max-w-7xl mx-auto mt-20 h-px bg-zinc-300 dark:bg-zinc-700 w-full" />
     </footer>
   );
 }
