@@ -130,7 +130,7 @@ const Skills = ({ staggerContainer, fadeUp }) => {
       <AnimatedTitle text="thearsenal" />
 
       {/* New Horizontal Editorial Layout */}
-      <div className="flex flex-col gap-24 mt-32">
+      <div className="flex flex-col gap-24 sm:mt-32">
         {skillCategories.map((category, index) => (
           <motion.div
             key={index}
@@ -139,18 +139,18 @@ const Skills = ({ staggerContainer, fadeUp }) => {
           >
             {/* Left Side: Large Titles */}
             <div className="w-full md:w-5/12">
-              <h3 className="text-6xl md:text-[80px] leading-[1.1] font-bold font text-zinc-900 dark:text-zinc-100">
+              <h3 className="text-4xl md:text-[80px] leading-[1.1] font-bold font text-zinc-900 dark:text-zinc-100">
                 {category.titlePart1} <br /> {category.titlePart2}
               </h3>
-              <p className="mt-6 text-2xl font text-zinc-600 dark:text-zinc-400">
+              <p className="mt-6 text-xl sm:text-2xl font text-zinc-600 dark:text-zinc-400">
                 {category.subtitle}
               </p>
             </div>
 
             {/* Right Side: Technologies List */}
-            <div className="w-full md:w-6/12 flex flex-col items-start md:items-end md:mt-16">
+            <div className="w-full md:w-6/12 flex flex-col items-end md:mt-16">
               <div className="w-full max-w-lg">
-                <h4 className="text-3xl font font-semibold mb-8 text-zinc-900 dark:text-zinc-100">
+                <h4 className="text-2xl sm:text-3xl font font-semibold mb-8 text-zinc-900 dark:text-zinc-100">
                   Technologies
                 </h4>
 

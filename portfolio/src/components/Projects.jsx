@@ -100,7 +100,7 @@ export default function Projects({ staggerContainer, fadeUp }) {
   return (
     <motion.section
       id="projects"
-      className="max-w-7xl mx-auto py-24"
+      className="max-w-7xl mx-auto py-10 px-6"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
@@ -117,20 +117,20 @@ export default function Projects({ staggerContainer, fadeUp }) {
 
         <motion.h2
           variants={fadeUp}
-          className="text-5xl px-6 md:text-7xl lg:text-[110px] font-bold font uppercase mt-10 leading-[0.9] tracking-tight text-zinc-900 dark:text-zinc-100"
+          className="text-4xl sm:px-6 md:text-7xl lg:text-[110px] font-bold font uppercase mt-10 leading-[0.9] tracking-tight text-zinc-900 dark:text-zinc-100"
         >
           CRAFTING DIGITAL <br /> EXPERIENCES
         </motion.h2>
 
         <motion.p
           variants={fadeUp}
-          className="text-xl px-6 md:text-2xl text-zinc-600 dark:text-zinc-400 font mt-8"
+          className="text-lg sm:px-6 md:text-2xl text-zinc-600 dark:text-zinc-400 font mt-8"
         >
           A journey through code, creativity, and endless possibilities.
         </motion.p>
       </div>
 
-      <motion.div variants={fadeUp} className="max-w-6xl mx-auto px-6">
+      <motion.div variants={fadeUp} className="max-w-7xl mx-auto sm:px-6">
         {/* 2. GitHub Style Header Box */}
         <div
           variants={fadeUp}

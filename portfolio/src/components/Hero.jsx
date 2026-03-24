@@ -8,7 +8,7 @@ const Hero = ({ staggerContainer, fadeUp }) => {
   return (
     <section
       id="home"
-      className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-10 md:gap-16 items-center justify-center min-h-screen"
+      className="relative max-w-7xl mx-auto px-6 py-20 md:py-32 grid md:grid-cols-2 gap-10 md:gap-16 items-center justify-center min-h-screen text-center sm:text-start"
     >
       {/* LEFT: Staggered Text Reveal */}
       <motion.div
@@ -21,7 +21,7 @@ const Hero = ({ staggerContainer, fadeUp }) => {
           <motion.h1
             key={index}
             variants={fadeUp}
-            className={`font uppercase font-bold text-6xl sm:text-7xl lg:text-[100px] ${word === "debug." ? "bg-blue-100 dark:bg-blue-900/40 inline-block px-2" : ""}`}
+            className={`font uppercase font-bold text-5xl sm:text-7xl lg:text-[100px] ${word === "debug." ? "bg-blue-80 dark:bg-blue-900/70 inline-block px-2" : ""}`}
           >
             {word}
           </motion.h1>
@@ -30,7 +30,7 @@ const Hero = ({ staggerContainer, fadeUp }) => {
         <motion.a
           variants={fadeUp}
           href="#projects"
-          className="inline-block mt-8 text-lg border-b-3 border-zinc-900 dark:border-zinc-100 pb-1 cursor-pointer hover:opacity-70 transition-opacity font"
+          className="inline-block mt-8 text-md sm:text-lg border-b-3 border-zinc-900 dark:border-zinc-100 pb-1 cursor-pointer hover:opacity-70 transition-opacity font"
         >
           View My Work →
         </motion.a>
@@ -43,28 +43,28 @@ const Hero = ({ staggerContainer, fadeUp }) => {
         transition={{ duration: 1, delay: 0.5 }}
         className="space-y-12"
       >
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 items-center sm:items-start">
           {/* ANIMATED IMAGE CONTAINER */}
           <div className="relative group">
             {/* The Gray Border (Moves slower) */}
             <motion.div 
               animate={{ y: [0, 15, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
               className="absolute -inset-4 bg-zinc-200 dark:bg-zinc-800 -z-10 shadow-xl"
             />
             
             {/* The Actual Photo (Moves faster/offset) */}
             <motion.div
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.2 }}
+              animate={{ y: [0, 15, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               className="relative overflow-hidden shadow-2xl"
             >
               <img
                 src="me.jpeg"
                 alt="Farah Mahmoud"
-                className="w-80 md:w-80 object-cover aspect-4/5" 
+                className="w-60 md:w-70 object-cover aspect-4/5" 
               />
-              <span className="absolute bottom-4 right-4 text-white text-2xl chewy-regular drop-shadow-lg text-right leading-tight">
+              <span className="absolute bottom-4 right-4 text-white text-lg sm:text-xl chewy-regular drop-shadow-lg text-right leading-tight">
                 code.<br />build.<br />capture.
               </span>
             </motion.div>
@@ -89,10 +89,10 @@ const Hero = ({ staggerContainer, fadeUp }) => {
 
         {/* Hello & CV Buttons */}
         <div className="flex flex-col gap-6">
-          <h2 className="text-5xl font-semibold signature">
+          <h2 className="text-5xl text-center sm:text-start font-semibold signature">
             Hello, I'm Farah Mahmoud
           </h2>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center gap-6">
             <a href="/Farah Mahmoud Resume.pdf" target="_blank" className="flex items-center gap-3 hover:border-b-2 text-lg font">
               View CV
               <svg className="w-4 h-4 rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -115,12 +115,12 @@ const Hero = ({ staggerContainer, fadeUp }) => {
         style={{ opacity }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none"
       >
-        <span className="text-sm font-light tracking-[0.3em] uppercase text-zinc-700 font">Scroll</span>
+        <span className="text-sm font-light tracking-[0.3em] uppercase text-zinc-700 dark:text-zinc-300 font">Scroll</span>
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <svg className="w-6 h-6 text-zinc-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+          <svg className="w-6 h-6 text-zinc-700 dark:text-zinc-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7-7-7" />
           </svg>
         </motion.div>

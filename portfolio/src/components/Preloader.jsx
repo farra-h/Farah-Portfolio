@@ -26,7 +26,7 @@ const Preloader = () => {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-white dark:bg-zinc-900 grid-bg"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-white dark:bg-zinc-900 grid-bg"
       initial={{ opacity: 1 }}
       exit={{
         opacity: 0,
@@ -47,7 +47,7 @@ const Preloader = () => {
             <motion.span
               key={index}
               variants={letterVariants}
-              className="signature text-[120px] md:text-[180px] text-zinc-900 dark:text-zinc-100 leading-none"
+              className="signature text-[55px] sm:text-[120px] md:text-[180px] text-zinc-900 dark:text-zinc-100 leading-none"
             >
               {letter === " " ? "\u00A0" : letter}
             </motion.span>
@@ -56,7 +56,7 @@ const Preloader = () => {
 
         {/* The Animated Expanding Line */}
         <motion.div 
-          className="h-[2px] bg-zinc-800 dark:bg-zinc-200 mt-2 mx-auto rounded-full"
+          className="h-0.5 bg-zinc-800 dark:bg-zinc-200 mt-2 mx-auto rounded-full"
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           // Starts slightly after the letters begin to appear for a cascading effect

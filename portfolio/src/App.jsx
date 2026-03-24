@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -79,6 +80,7 @@ function App() {
 
   return (
     <>
+      <Cursor />
       <AnimatePresence mode="wait">
         {isLoading && <Preloader key="loader" />}
       </AnimatePresence>
@@ -88,9 +90,22 @@ function App() {
         <button
           onClick={toggleTheme}
           aria-label={"Switch theme"}
-          className=" w-10 h-10 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-xl shadow-md dark:hover:bg-zinc-700 flex items-center justify-center fixed bottom-6 right-6 z-50 transition-all"
+          className="w-10 h-10 bg-white dark:bg-zinc-800 border cursor-pointer border-zinc-200 dark:border-zinc-700 rounded-xl shadow-md dark:hover:bg-zinc-700 hover:bg-zinc-50 flex items-center justify-center fixed bottom-6 right-6 z-50 transition-all duration-300 group"
         >
-          {theme === "dark" ? <span>☀️</span> : <span>🌙</span>}
+          {theme === "dark" ? (
+            /* DARK MODE: The solid white dot */
+            <div className="w-3.5 h-3.5 bg-zinc-200 rounded-full shadow-blue-200 shadow-[0_0_12px_rgba(49,113,198,0.8)] scale-100 group-hover:scale-110 transition-transform duration-300" />
+          ) : (
+            /* LIGHT MODE: The Crescent Moon */
+            <svg
+              className="w-5 h-5 text-zinc-900 group-hover:-rotate-12 transition-transform duration-800 ease-in-out"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              stroke="none"
+            >
+              <path d="M21 12.79A9 9 0 1 1 15.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          )}
         </button>
 
         <Header time={time} />

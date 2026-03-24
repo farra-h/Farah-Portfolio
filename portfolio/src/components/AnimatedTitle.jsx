@@ -18,7 +18,7 @@ const AnimatedTitle = ({text}) => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      className="uppercase text-7xl md:text-[190px] leading-[1.2] text-center font-bold py-10 font flex justify-center flex-wrap"
+      className="uppercase text-6xl sm:text-7xl md:text-[190px] leading-[1.2] text-center font-bold py-10 font flex justify-center flex-wrap"
     >
       {letters.map((letter, index) => {
         // Check if the letter's position is even or odd to alternate up/down
@@ -37,10 +37,10 @@ const AnimatedTitle = ({text}) => {
           <motion.span
             key={index}
             variants={letterVariant}
-            className="inline-block -mx-3 mb-25"
+            className="inline-block -mx-2 sm:-mx-3 mb-25"
           >
             {/* The scale classes here stretch the font to look tall and condensed */}
-            <span className="inline-block scale-y-[2.5] scale-x-[0.85] origin-center">
+            <span className="inline-block scale-y-[2.5] scale-x-[0.9] origin-center">
               {letter === " " ? "\u00A0" : letter}
             </span>
           </motion.span>

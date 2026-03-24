@@ -13,7 +13,7 @@ export default function Footer() {
 
   return (
     <footer className="relative w-full border-t border-zinc-300 dark:border-zinc-700 pt-20 pb-10 px-6 mt-20 bg-zinc-100/50 dark:bg-zinc-900/50">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 text-center sm:text-start">
         
         {/* Left Column: Info */}
         <div className="flex flex-col gap-6 text-zinc-600 dark:text-zinc-400 font">
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
 
         {/* Right Column: Navigation */}
-        <div className="flex flex-col items-end gap-4 text-lg font text-zinc-600 dark:text-zinc-400">
+        <div className="flex flex-col sm:items-end gap-4 text-lg font text-zinc-600 dark:text-zinc-400">
           {navLinks.map((item) => (
             <a 
               key={item} 
